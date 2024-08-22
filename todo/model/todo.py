@@ -17,5 +17,11 @@ class Todo:
         return f"{self.code_id} - {self.title}"
 
 class TodoBook:
-    def __init__(self, todos: dict[int, Todo] = {}):
-        self.todos = todos
+    def __init__(self):
+        self.todos: dict[int, Todo] = {}
+
+    def add_todo(self,title: str, description: str) -> int:
+        id = len(self.todos) + 1
+        objeto = Todo(id, title , description)
+        self.todos[id] = objeto
+        return id
